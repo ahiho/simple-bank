@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-bank-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  namespace: duckhue01
+spec:
+  tls:
+    - hosts:
+        - duckhue01.cluster.ahiho.dev
+      secretName: duckhue01.cluster.ahiho.dev-tls
+  rules:
+    - host: "duckhue01.cluster.ahiho.dev"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: simple-bank-api-service
+                port:
+                  number: 80
+
