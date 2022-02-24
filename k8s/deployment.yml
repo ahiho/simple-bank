@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: simple-bank-api
-          image: duckhue01/simple-bank:latest
+          image: 633674601707.dkr.ecr.ap-southeast-1.amazonaws.com/duckhue01:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
