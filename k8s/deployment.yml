@@ -21,3 +21,12 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              memory: "500Mi"
+              cpu: "50m"
+            limits:
+              memory: "5000Mi"
+              cpu: "500m"
+      nodeSelector:
+        kops.k8s.io/instancegroup: dev-ap-southeast-1a
